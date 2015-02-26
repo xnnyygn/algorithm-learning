@@ -1,6 +1,20 @@
 package in.xnnyygn.algorithm.dlx;
 
 
+/**
+ * DLX.
+ * <p>
+ * references
+ * <ul>
+ * <li>http://blog.csdn.net/mu399/article/details/7627862</li>
+ * <li>https://sqybi.github.io/dlxcn/</li>
+ * <li>https://www.ocf.berkeley.edu/~jchu/publicportal/sudoku/sudoku.paper.html</li>
+ * </ul>
+ * </p>
+ * 
+ * @author xnnyygn
+ * @version $Id: DancingLinks.java, v 0.1 26 Feb, 2015 3:34:26 pm xnnyygn Exp $
+ */
 public class DancingLinks {
 
   /**
