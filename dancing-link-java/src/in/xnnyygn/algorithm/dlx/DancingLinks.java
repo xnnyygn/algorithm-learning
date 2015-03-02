@@ -89,7 +89,7 @@ public class DancingLinks {
     return selected;
   }
 
-  public ColumnHeader[] buildColumnHeaders(Head head, int length) {
+  public static ColumnHeader[] buildColumnHeaders(Head head, int length) {
     AbstractCell lastColumn = head;
     ColumnHeader[] columns = new ColumnHeader[length];
     for (int i = 0; i < length; i++) {
@@ -101,6 +101,27 @@ public class DancingLinks {
     }
     lastColumn.right = head;
     return columns;
+  }
+
+  public static <T> void appendCell(ColumnHeader[] columnHeaders, int[] columnIndices, T name) {
+    AbstractCell lastCell = new Cell<T>();
+    for (int i = 0; i < columnIndices.length; i++) {
+      Cell<T> cell = new Cell<T>();
+      cell.name = name;
+
+      ColumnHeader column = columnHeaders[columnIndices[i]];
+      column.up.appendDown(cell);
+      column.numberOfOnes++;
+      column.up = cell;
+
+      cell.down = column;
+      cell.columnHeader = column;
+
+      lastCell.appendRight(cell);
+      lastCell = cell;
+    }
+    AbstractCell firstCell = columnHeaders[columnIndices[0]].up;
+    lastCell.appendRight(firstCell);
   }
 
 }
