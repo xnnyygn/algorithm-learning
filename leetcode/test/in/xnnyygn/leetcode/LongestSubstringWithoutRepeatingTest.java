@@ -33,4 +33,8 @@ public class LongestSubstringWithoutRepeatingTest {
     assertEquals(3, r.lengthOfLongestSubstring("dvdf"));
   }
 
+  @Test
+  public void test6() {
+    assertEquals(2, r.lengthOfLongestSubstring("abba"));
+  }
 }
